@@ -1,0 +1,11 @@
+<h1>Edit </h1>
+<%= simple_form_for @car do |f| %>
+  <%= f.input :brand %>
+  <%= f.input :model %>
+  <%= f.input :year %>
+  <%= f.input :category %>
+  <%= f.input :city %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
