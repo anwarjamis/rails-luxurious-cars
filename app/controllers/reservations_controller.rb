@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-  before_action :set_car
+  before_action :set_car, only: [:show, :new, :create, :edit, :update, :destroy]
 
   def index
     @reservations = Reservation.all
@@ -15,11 +15,11 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    @user = current_user.id
-    @reservation.user_id = @user
-    @reservation.car_id = params[:car_id]
+    @reservation.users_id = current_user.id
+    @reservation.cars_id = params[:car_id]
+    @reservation.amount = (@reservation.end_date.day - @reservation.start_date.day) * @car.price
     @reservation.save
-    redirect_to reservation_path(@reservation)
+    redirect_to car_reservation_path(@car, @reservation)
   end
 
   def edit
@@ -38,7 +38,7 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :amount)
+    params.require(:reservation).permit(:start_date, :end_date)
   end
 
   def set_reservation
@@ -46,6 +46,6 @@ class ReservationsController < ApplicationController
   end
 
   def set_car
-    @car = Car.find([params[:car_id]])
+    @car = Car.find(params[:car_id])
   end
 end
