@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action set_car, only: [:show, :edit, :update, :destroy]
+  before_action :set_car, only: [:show, :edit, :update, :destroy]
 
   def index
     @cars = Car.all
@@ -33,6 +33,9 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
 
+  def my_cars
+    @cars = Car.where(user_id: current_user)
+  end
   private
 
   def car_params
