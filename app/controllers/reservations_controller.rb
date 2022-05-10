@@ -19,7 +19,7 @@ class ReservationsController < ApplicationController
     @reservation.cars_id = params[:car_id]
     @reservation.amount = (@reservation.end_date.day - @reservation.start_date.day) * @car.price
     @reservation.save
-    redirect_to reservation_path(@reservation)
+    redirect_to car_reservation_path(@car, @reservation)
   end
 
   def edit
