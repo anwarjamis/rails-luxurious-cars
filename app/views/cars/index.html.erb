@@ -5,7 +5,13 @@
   </div>
 </div>
 
+<div class="container">
   <h1>Our cars</h1>
-  <% @cars.each do |car|%>
-  <%= link_to "#{car.model} - #{car.year}", car_path(car) %>
-  <% end %>
+  <div class="cards">
+    <% @cars.each do |car|%>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))"><%= link_to "#{car.brand} #{car.model}", car_path(car) %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<br>
