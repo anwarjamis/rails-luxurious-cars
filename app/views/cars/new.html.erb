@@ -1,11 +1,15 @@
-<h1>Add new car</h1>
-<%= simple_form_for @car do |f| %>
-  <%= f.input :brand %>
-  <%= f.input :model %>
-  <%= f.input :year %>
-  <%= f.input :category %>
-  <%= f.input :city %>
-  <%= f.input :price %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
+<br>
+<div class="container">
+  <h1>Tell us about your car</h1>
+  <%= simple_form_for @car do |f| %>
+    <%= f.input :brand %>
+    <%= f.input :model %>
+    <%= f.input :year %>
+    <%= f.input :category %>
+    <%= f.input :city %>
+    <%= f.input :price %>
+    <%= f.input :description %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
+<br>
