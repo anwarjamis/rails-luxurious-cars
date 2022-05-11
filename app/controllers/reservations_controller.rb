@@ -39,7 +39,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation.destroy
     authorize @reservation
-    redirect_to cars_reservations_path
+    redirect_to root_path
   end
 
   private
