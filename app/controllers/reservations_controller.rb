@@ -3,36 +3,43 @@ class ReservationsController < ApplicationController
   before_action :set_car, only: [:show, :new, :create, :edit, :update]
 
   def index
-    @reservations = Reservation.all
+    @reservations = policy_scope(Reservation).order(created_at: :desc)
+    authorize @reservations
   end
 
   def show
+    authorize @reservation
   end
 
   def new
     @reservation = Reservation.new
+    authorize @reservation
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.users_id = current_user.id
-    @reservation.cars_id = params[:car_id]
+    authorize @reservation
+    @reservation.user_id = current_user.id
+    @reservation.car_id = params[:car_id]
     @reservation.amount = (@reservation.end_date.day - @reservation.start_date.day) * @car.price
     @reservation.save
     redirect_to car_reservation_path(@car, @reservation)
   end
 
   def edit
+    authorize @reservation
   end
 
   def update
     @reservation.update(reservation_params)
+    authorize @reservation
     redirect_to car_reservation_path(@car, @reservation)
   end
 
   def destroy
     @reservation.destroy
-    redirect_to cars_reservations_path
+    authorize @reservation
+    redirect_to root_path
   end
 
   private
