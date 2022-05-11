@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-  before_action :set_car, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_car, only: [:show, :new, :create, :edit, :update]
 
   def index
     @reservations = Reservation.all
@@ -27,12 +27,12 @@ class ReservationsController < ApplicationController
 
   def update
     @reservation.update(reservation_params)
-    redirect_to reservation_path(@reservation)
+    redirect_to car_reservation_path(@car, @reservation)
   end
 
   def destroy
     @reservation.destroy
-    redirect_to reservations_path
+    redirect_to cars_reservations_path
   end
 
   private

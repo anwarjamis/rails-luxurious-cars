@@ -4,6 +4,6 @@
 <h3>Total amount: <%= @reservation.amount %></h3>
 <%= link_to "Edit this reservation", edit_car_reservation_path(@car, @reservation) %><br>
 <%= link_to "Remove reservation",
-                  car_path(@car),
+                  car_reservation_path(@reservation),
                   method: :delete,
                   data: { confirm: "Are you sure?" } %>
