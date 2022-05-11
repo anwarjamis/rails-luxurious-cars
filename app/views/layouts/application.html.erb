@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -16,8 +15,8 @@
   <body>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "logocar.png" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "steering-wheel.png" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +27,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", cars_path, class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Add car", new_car_path, class: "nav-link" %>
@@ -37,7 +36,7 @@
             <%= image_tag "empty-avatar.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My cars", mycars_path, class: "dropdown-item" %>
-              <%#= link_to "My reservations", car_reservations, class: "dropdown-item" %>
+              <%= link_to "My reservations", cars_reservations_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
@@ -53,10 +52,12 @@
     </div>
   </div>
 </div>
+    <!--
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div class="container">
+    <p class="alert"><%= alert %></p> %> -->
+    <%= render 'shared/flashes' %>
     <%= yield %>
+
 </div>
 <div class="footer" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/rp-gt4-6-1560804940.jpg?resize=980:*;)">
   <div>
@@ -70,6 +71,7 @@
 </div>
 
 </div>
+
 
 </div>
   </body>

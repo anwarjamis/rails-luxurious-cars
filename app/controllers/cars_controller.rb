@@ -36,6 +36,7 @@ class CarsController < ApplicationController
   def my_cars
     @cars = Car.where(user_id: current_user)
   end
+
   private
 
   def car_params
