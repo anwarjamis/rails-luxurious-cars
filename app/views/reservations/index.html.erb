@@ -1,0 +1,9 @@
+<h1>All reservations</h1>
+<ul>
+  <% @reservations.each do |reservation|%>
+  <li><%= Car.find(reservation.cars_id).brand %> <%= Car.find(reservation.cars_id).model %> reserved</li>
+  <p><%= "From #{reservation.start_date.strftime("%F")} to #{reservation.end_date.strftime("%F")}" %></p>
+  <p>payed: $<%= reservation.amount %></p>
+  <br><br>
+  <% end %>
+</ul>

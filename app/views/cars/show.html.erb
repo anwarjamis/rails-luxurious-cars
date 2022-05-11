@@ -5,4 +5,4 @@
 <h5>City: <%= @car.city %></h5>
 <%= link_to "Back to index", cars_path %><br>
 <%= link_to "Edit this car", edit_car_path(@car) %><br>
-<%= link_to "Book this car", "#" %>
+<%= link_to "Book this car", new_car_reservation_path(@car) %>
