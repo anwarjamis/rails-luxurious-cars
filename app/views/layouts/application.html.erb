@@ -35,7 +35,8 @@
           <li class="nav-item dropdown">
             <%= image_tag "empty-avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Hi #{current_user.username}!", mycars_path, class: "dropdown-item" %>
+              <%= link_to "Hi #{current_user.username}!", "#", class: "dropdown-item" %>
+              <%= link_to "My cars", mycars_path, class: "dropdown-item" %>
               <%= link_to "My reservations", cars_reservations_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
