@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :reservations, except: :index
   end
   get '/mycars', to: 'cars#my_cars'
+  resources :users, except: %i[index destroy]
 end
