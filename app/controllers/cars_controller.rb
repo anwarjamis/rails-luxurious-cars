@@ -25,7 +25,7 @@ class CarsController < ApplicationController
   end
 
   def edit
-    authorize @car
+    authorize @cars
   end
 
   def update
