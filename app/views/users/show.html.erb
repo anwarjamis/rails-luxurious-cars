@@ -1,1 +1,11 @@
-<h1>Usuario</h1>
+<br>
+<h1>Hello <%= @user.username %>!</h1>
+<p><%= @user.email %></p>
+<h3>Full Name: <%= @user.name %></h3>
+<h3>Phone Number: <%= @user.phone_number %></h3>
+<h3>Credit Card Number: <%= @user.card %></h3>
+<h3>Bank Account: <%= @user.bank_account %></h3>
+<%= link_to "Edit profile", edit_user_path(@user) %>
+<%= link_to "Edit password", edit_user_registration_path %>
+<%= link_to "Delete account", cancel_user_registration_path %>
+<br><br>
