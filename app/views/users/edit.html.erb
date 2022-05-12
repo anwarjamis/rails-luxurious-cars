@@ -1,0 +1,14 @@
+<br>
+  <div class="new-car container">
+    <h1>Edit your information</h1>
+    <%= simple_form_for [@user] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :username  %>
+      <%= f.input :phone_number %>
+      <%= f.input :bank_account %>
+      <%= f.input :card %>
+      <%= f.button :submit %>
+    <% end %>
+    <br>
+    </div>
+<br>

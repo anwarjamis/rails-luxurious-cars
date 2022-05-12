@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    authorize @user
+    authoize @user
   end
 
   def edit
@@ -23,12 +23,13 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     authorize @user
+    redirect_to user_path(@user)
   end
 
   private
 
   def user_params
-    params.require(:car).permit(:year, :brand, :category, :model, :city, :price, :description)
+    params.require(:user).permit(:name, :username, :phone_number, :bank_account, :card)
   end
 
   def set_user

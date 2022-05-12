@@ -2,12 +2,16 @@
 <div class="new-car container">
   <h1>Reservation #<%= @reservation.id %> </h1>
   <h3>Start date: <%= @reservation.start_date.strftime("%F") %></h3>
-  <h3>Start date: <%= @reservation.end_date.strftime("%F") %></h3>
+  <h3>End date: <%= @reservation.end_date.strftime("%F") %></h3>
   <h3>Total amount: <%= @reservation.amount %></h3>
-  <%= link_to "Edit this reservation", edit_car_reservation_path(@car, @reservation) %><br>
+  <% if policy(@reservation).edit? %>
+    <%= link_to "Edit this reservation", edit_car_reservation_path(@car, @reservation) %><br>
+  <% end %>
+  <% if policy(@reservation).destroy? %>
   <%= link_to "Remove reservation",
-                    car_reservation_path(@reservation),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
+                  car_reservation_path(@reservation),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+  <% end %>
 </div>
 <br>
