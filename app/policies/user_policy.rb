@@ -7,11 +7,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    record.id == user.id
+    record == user
   end
 
   def create?
-    record.id == user.id
+    record == user
   end
 
   def update?
@@ -19,10 +19,10 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.id == user.id
+    record == user
   end
 
   def destroy?
-    record.id == user.id
+    record == user
   end
 end
