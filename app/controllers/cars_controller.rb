@@ -4,6 +4,11 @@ class CarsController < ApplicationController
 
   def index
     @cars = policy_scope(Car).order(created_at: :desc)
+    if params[:query].present?
+      @cars = Car.search_by_brand_and_model(params[:query])
+    else
+      @cars
+    end
   end
 
   def show
@@ -25,7 +30,7 @@ class CarsController < ApplicationController
   end
 
   def edit
-    authorize @cars
+    authorize @car
   end
 
   def update

@@ -4,7 +4,20 @@
     <p><em>Rent a luxury car and feel the wind in your face</em></p>
   </div>
 </div>
+<br>
 
+
+<!-- Mejorar y poner donde quieran, ya esta funcionando<!-->
+<%= form_tag cars_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a movie"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %> %>
+
+<br>
 <div class="container">
   <h1>Our cars</h1>
   <div class="cards">
