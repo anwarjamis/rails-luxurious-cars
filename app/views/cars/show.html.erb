@@ -27,3 +27,9 @@
       <h4>Description: <p><%= @car.description %></p></h4>
   </div>
 </div>
+<!-- aca esta el mapa, para q hagan su magia-->
+<div style="width: 50%; height: 300px;"
+  data-controller="mapbox"
+  data-mapbox-marker-value="<%= @marker.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
