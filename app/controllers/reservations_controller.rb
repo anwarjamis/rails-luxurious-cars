@@ -32,6 +32,8 @@ class ReservationsController < ApplicationController
 
   def update
     @reservation.update(reservation_params)
+    @reservation.amount = (@reservation.end_date.day - @reservation.start_date.day) * @car.price
+    @reservation.update(reservation_params)
     authorize @reservation
     redirect_to car_reservation_path(@car, @reservation)
   end

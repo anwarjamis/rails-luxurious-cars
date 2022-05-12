@@ -1,14 +1,11 @@
 <h1>All reservations</h1>
 <ul>
   <% @reservations_of_user.each do |reservation|%>
-  <li><%= Car.find(reservation.car_id).brand %> <%= Car.find(reservation.car_id).model %> reserved</li>
+  <% car = Car.find(reservation.car_id) %>
+  <li><%= link_to "#{car.brand} #{car.model} reserved", car_reservation_path(car, reservation) %></li>
   <p><%= "From #{reservation.start_date.strftime("%F")} to #{reservation.end_date.strftime("%F")}" %></p>
   <p>payed: $<%= reservation.amount %></p>
-  <%#= link_to "Edit this reservation", edit_car_reservation_path(@car, reservation) %>
-  <%#= link_to "Remove reservation",
-                  car_reservation_path(reservation),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
+  <% car = Car.find(reservation.car_id) %></h1>
   <br><br>
   <% end %>
 </ul>
