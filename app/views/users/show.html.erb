@@ -6,6 +6,5 @@
 <h3>Credit Card Number: <%= @user.card %></h3>
 <h3>Bank Account: <%= @user.bank_account %></h3>
 <%= link_to "Edit profile", edit_user_path(@user) %>
-<%= link_to "Edit password", edit_user_registration_path %>
-<%= link_to "Delete account", cancel_user_registration_path %>
+<%= link_to "Edit/Cancel password", edit_user_registration_path %>
 <br><br>
