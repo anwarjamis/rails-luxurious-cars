@@ -28,6 +28,6 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
     bounds.extend([ this.markerValue.lng, this.markerValue.lat ])
     // this.markerValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 10, duration: 0 })
   };
 }
