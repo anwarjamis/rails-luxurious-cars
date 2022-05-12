@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = policy_scope(Reservation).order(created_at: :desc)
-    authorize @reservations
+    @reservations_of_user = @reservations.where(user_id: current_user)
   end
 
   def show
