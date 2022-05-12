@@ -1,9 +1,26 @@
-<h1><%= @car.brand%> - <%=@car.model%></h1>
-<h4>Model <%= @car.year %></h4>
-<h4>Category: <%= @car.category %></h4>
-<p><%= @car.description %></p>
-<h5>City: <%= @car.city %></h5>
-<%= link_to "Back to index", cars_path %><br>
-<%= link_to "Edit this car", edit_car_path(@car) %><br>
-<%= link_to "Book this car", new_car_reservation_path(@car) %>
-<br>
+
+
+<div class="show-info">
+  <div class="container">
+    <br>
+      <div class="show-info-car">
+        <div>
+          <h1><%= @car.brand%> - <%=@car.model%></h1>
+          <h2><p>Model:<%= @car.year %></p></h2>
+          <h2>Category: <%= @car.category %></h2>
+          <h2>Color:<%= @car.description %></h2>
+          <h2>City: <%= @car.city %></h2>
+        </div>
+        <div>
+          <h3>price: US$<%= @car.price %>/day</h3>
+        </div>
+        <div class="show-info-index">
+          <ul>
+            <%= link_to "Back to index", cars_path, class: "link_to"%> <br>
+            <%= link_to "Edit this car", edit_car_path(@car), class: "link_to"%><br>
+            <%= link_to "Book this car", new_car_reservation_path(@car), class: "link_to"%>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>
