@@ -1,9 +1,27 @@
-<h1><%= @car.brand%> - <%=@car.model%></h1>
-<h4>Model <%= @car.year %></h4>
-<h4>Category: <%= @car.category %></h4>
-<p><%= @car.description %></p>
-<h5>City: <%= @car.city %></h5>
-<%= link_to "Back to index", cars_path %><br>
-<%= link_to "Edit this car", edit_car_path(@car) %><br>
-<%= link_to "Book this car", new_car_reservation_path(@car) %>
-<br>
+
+
+<div class="show-info">
+<img src="https://img.remediosdigitales.com/82dfc9/bugatti-chiron-300-unidades-fabricadas-02/1024_2000.jpeg" />
+  <div class="container">
+    <br>
+      <div class="show-info-car">
+        <div>
+          <h1><%= @car.brand%> - <%=@car.model%></h1>
+          <h2>Model: <%= @car.year %></h2>
+          <h2>Category: <%= @car.category %></h2>
+          <h2>City: <%= @car.city %></h2>
+        </div>
+        <div>
+          <h3>price: $<%= @car.price %>/day</h3>
+        </div>
+        <div class="show-info-index">
+          <ul>
+            <%= link_to "Back to index", cars_path, class: "link_to"%> <br>
+            <%= link_to "Edit this car", edit_car_path(@car), class: "link_to"%><br>
+            <%= link_to "Book this car", new_car_reservation_path(@car), class: "link_to"%>
+          </ul>
+        </div>
+      </div>
+      <h4>Description: <p><%= @car.description %></p></h4>
+  </div>
+</div>
