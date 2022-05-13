@@ -1,9 +1,12 @@
-<% @cars.each do |car| %>
-  <h1><%= link_to "#{car.brand} - #{car.model}", car_path(car) %></h1>
-  <h4>Model <%= car.year %></h4>
-  <h4>Category: <%= car.category %></h4>
-  <p><%= car.description %></p>
-  <h5>City: <%= car.city %></h5>
-  <br><br>
-<% end %>
+<br>
+<div class="container">
+  <h1>Your available cars</h1>
+  <div class="cards">
+    <% @cars.each do |car|%>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dxneryfww/image/upload/v1652217993/development/<%=car.photo.key%>.jpg)">
+      <%= link_to "#{car.brand} #{car.model}", car_path(car), class: "text-white" %>
+    </div>
+    <% end %>
+  </div>
+</div>
 <br>
