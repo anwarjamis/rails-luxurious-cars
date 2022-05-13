@@ -6,10 +6,9 @@
     <%= form_tag cars_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
-      placeholder: "Find a car"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+      class: "form-control form-control-search",
+      placeholder: "Find a car"%>
+    <%= submit_tag "Search", class: "btn btn-primary btn-primary-search" %>
     <% end %>
   </div>
 </div>

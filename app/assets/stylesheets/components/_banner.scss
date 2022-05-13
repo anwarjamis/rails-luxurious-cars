@@ -32,18 +32,17 @@
   padding: 5px;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
 }
 
-.form-control {
-  display: block;
-  border-radius: 20px;
+.form-control-search {
+  display: inline-block;
+  border-radius: 20px 0 0 20px;
   align-items: center;
   justify-content: center;
-  margin: 5px auto;
   width: 40%;
+  height: fit-content;
 }
 
-.btn-primary {
-  border-radius: 17px;
+.btn-primary-search {
+  border-radius: 0 20px 20px 0;
 }
