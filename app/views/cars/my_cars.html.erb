@@ -3,7 +3,7 @@
   <h1>Your available cars</h1>
   <div class="cards">
     <% @cars.each do |car|%>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dxneryfww/image/upload/v1652217993/development/<%=car.photo.key%>.jpg)">
+    <div class="card-category" style="background-image: url(<%= cl_image_path car.photo.key %>)">
       <%= link_to "#{car.brand} #{car.model}", car_path(car), class: "text-white" %>
     </div>
     <% end %>
