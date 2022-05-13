@@ -18,10 +18,15 @@
           <ul>
             <%= link_to "Back to index", cars_path, class: "link_to"%> <br>
             <% if policy(@car).edit? %>
-              <%= link_to "Edit this car", edit_car_path(@car) %><br>
+              <%= link_to "Edit car", edit_car_path(@car), class: "link_to" %><br>
+              <%= link_to "Delete car",
+                            car_path(@car),
+                            class: "link_to",
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
             <% end %>
             <% if !policy(@car).edit? %>
-              <%= link_to "Book this car", new_car_reservation_path(@car) %><br>
+              <%= link_to "Book this car", new_car_reservation_path(@car), class: "link_to" %><br>
             <% end %>
           </ul>
         </div>
