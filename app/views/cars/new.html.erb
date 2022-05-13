@@ -5,10 +5,10 @@
     <%= f.input :brand %>
     <%= f.input :model %>
     <%= f.input :year %>
-    <%= f.input :category %>
+    <%= f.input :category, collection: ['classic', 'sport', 'SUV', 'unique', 'others'] %>
     <%= f.input :city %>
     <%= f.input :price %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photo, as: :file, required: true %>
     <%= f.input :description %>
     <%= f.button :submit %>
   <% end %>

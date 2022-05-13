@@ -1,5 +1,7 @@
 <div class="show-info">
-<%= cl_image_tag @car.photo.key, crop: :fill %>
+<% if @car.photo.attached? %>
+  <%= cl_image_tag @car.photo.key, crop: :fill %>
+<% end %>
   <div class="container">
     <br>
       <div class="show-info-car">
