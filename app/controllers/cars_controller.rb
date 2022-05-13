@@ -9,11 +9,17 @@ class CarsController < ApplicationController
     else
       @cars
     end
+    @markers = @cars.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude
+      }
+    end
   end
 
   def show
     authorize @car
-    @marker = { lat: @car.latitude, lng: @car.longitude }
+    @markers = [{ lat: @car.latitude, lng: @car.longitude }]
   end
 
   def new
