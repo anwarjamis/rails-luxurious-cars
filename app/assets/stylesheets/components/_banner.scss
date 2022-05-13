@@ -29,8 +29,21 @@
 .container {
   display: block;
   border-radius: 20px;
-  padding: 10px;
+  padding: 5px;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+}
+
+.form-control {
+  display: block;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 5px auto;
+  width: 40%;
+}
+
+.btn-primary {
+  border-radius: 17px;
 }

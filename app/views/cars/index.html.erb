@@ -2,20 +2,17 @@
   <div class="container">
     <h1>It's time to ride the car of your dreams</h1>
     <p><em>Rent a luxury car and feel the wind in your face</em></p>
+    <br>
+    <%= form_tag cars_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a car"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
-<br>
-
-
-<!-- Mejorar y poner donde quieran, ya esta funcionando<!-->
-<%= form_tag cars_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a movie"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
 
 <br>
 <div class="container">
