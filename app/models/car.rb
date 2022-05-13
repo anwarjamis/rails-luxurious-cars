@@ -5,6 +5,7 @@ class Car < ApplicationRecord
   validates :category, inclusion: { in: ['classic', 'sport', 'SUV', 'unique', 'others'] }
   geocoded_by :city
   after_validation :geocode
+  has_one_attached :photo
 
   include PgSearch::Model
   pg_search_scope :search_by_brand_and_model,
