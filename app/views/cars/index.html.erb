@@ -22,7 +22,8 @@
   <h1>Our cars</h1>
   <div class="cards">
     <% @cars.each do |car|%>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))"><%= link_to "#{car.brand} #{car.model}", car_path(car) %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dzldggijz/image/upload/v1651853357/development/<%=car.photo.key%>.jpg)">
+      <%= link_to "#{car.brand} #{car.model}", car_path(car), class: "text-white" %>
     </div>
     <% end %>
   </div>

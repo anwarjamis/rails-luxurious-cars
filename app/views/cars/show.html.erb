@@ -1,5 +1,5 @@
 <div class="show-info">
-<img src="https://img.remediosdigitales.com/82dfc9/bugatti-chiron-300-unidades-fabricadas-02/1024_2000.jpeg" />
+<%= cl_image_tag @car.photo.key, crop: :fill %>
   <div class="container">
     <br>
       <div class="show-info-car">
@@ -25,11 +25,11 @@
         </div>
       </div>
       <h4>Description: <p><%= @car.description %></p></h4>
+      <div class="map" style="width: 50%; height: 300px;"
+      data-controller="mapbox"
+      data-mapbox-marker-value="<%= @marker.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <br>
   </div>
-</div>
-<!-- aca esta el mapa, para q hagan su magia-->
-<div style="width: 50%; height: 300px;"
-  data-controller="mapbox"
-  data-mapbox-marker-value="<%= @marker.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
