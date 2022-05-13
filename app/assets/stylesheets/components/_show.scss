@@ -12,11 +12,16 @@
 
 .link_to {
   text-decoration:none;
-  color: black;
+  color: #4e6ff4;
   list-style: none;
   opacity: 0.7;
   margin-left: 0px;
 }
+.link_to:hover {
+  color: blue;
+  opacity: 1;
+}
+
 .show-info .show-info-car{
   padding: 16px;
   display: flex;
